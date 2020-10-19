@@ -1,0 +1,26 @@
+<mat-toolbar>
+    <h4>COMPLETE USER REGISTRATION</h4>
+</mat-toolbar>
+<mat-horizontal-stepper enabled="false" labelPosition="bottom" #userRegistration>
+    <mat-step label="GENERAL INFORMATION">
+        <app-general-information></app-general-information>
+    </mat-step>
+    <mat-step label="CONTACT DETAILS">
+        <app-contact-details></app-contact-details>
+    </mat-step>
+    <mat-step label="IDENTITY DETAILS">
+        <app-identity-details></app-identity-details>
+    </mat-step>
+    <mat-step label="ADDRESS DETAILS">
+        <app-address-details></app-address-details>
+    </mat-step>
+    <mat-step label="SOCIAL NETWORKING">
+        <app-contact-details></app-contact-details>
+    </mat-step>
+    <mat-step label="AUTHENTICATION">
+        <app-contact-details></app-contact-details>
+    </mat-step>
+    <mat-step label="SUMMARY">
+        <app-contact-details></app-contact-details>
+    </mat-step>
+</mat-horizontal-stepper>

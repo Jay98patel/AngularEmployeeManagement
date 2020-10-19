@@ -1,0 +1,38 @@
+<mat-card>
+    <p>03. IDENTITY DETAILS</p>
+    <form [formGroup]="userIdentiForm" (ngSubmit)="onsubmit()">
+        <div fxLayout="row" formArrayName="userDetails" *ngFor="let user of userDetails().controls;  let i = index">
+            <div [formGroupName]="i" fxLayoutGap="10px">
+                <mat-form-field appearance="outline" fxFlex="20">
+                    <mat-select formControlName="document" placeholder="Organization Name">
+                        <mat-option *ngFor="let docs of docName" [value]="docs">
+                            {{ docs }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field appearance="outline" fxFlex="17">
+                    <input formControlName="docNum" matInput placeholder="Document Number">
+                </mat-form-field>
+                <mat-form-field appearance="outline" fxFlex="17">
+                    <input matInput formControlName="issueDate" [matDatepicker]="picker" placeholder="issueDate">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+                <mat-form-field appearance="outline" fxFlex="17">
+                    <input matInput formControlName="expDate" [matDatepicker]="exppicker" placeholder="expDate">
+                    <mat-datepicker-toggle matSuffix [for]="exppicker"></mat-datepicker-toggle>
+                    <mat-datepicker #exppicker></mat-datepicker>
+                </mat-form-field>
+                <mat-form-field appearance="outline" fxFlex="17">
+                    <input formControlName="issuePlace" matInput placeholder="Issue Place">
+                </mat-form-field>
+                <mat-icon class="cursor" (click)="removeRow(i)">delete</mat-icon>
+                <mat-icon class="cursor" (click)="addRow()">add_box</mat-icon>
+            </div>
+        </div>
+        <div fxLayoutAlign="end none">
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext type="submit">Save and Next</button>
+        </div>
+    </form>
+</mat-card>

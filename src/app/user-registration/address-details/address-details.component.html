@@ -1,0 +1,60 @@
+<mat-card>
+    <p>04. ADDRESS DETAILS</p>
+    <form [formGroup]="addressDetails" (ngSubmit)="onsubmit()">
+        <div fxLayout="column" formArrayName="addr" *ngFor="let user of userAddress().controls;  let i = index">
+            <div [formGroupName]="i" fxLayoutGap="10px">
+                <div fxLayout="row" fxLayoutGap="5px">
+                    <mat-form-field appearance="outline" fxFlex="24">
+                        <mat-select formControlName="orname" placeholder="Address Type">
+                            <mat-option *ngFor="let adtype of addresstype" [value]="adtype">
+                                {{ adtype }}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div fxLayout="row" fxLayoutGap="5px">
+                    <mat-form-field appearance="outline" fxFlex="35">
+                        <input formControlName="addline1" matInput placeholder="Address Line 1">
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" fxFlex="35">
+                        <input formControlName="addline2" matInput placeholder="Address Line 2">
+                    </mat-form-field>
+                </div>
+                <div fxLayout="row" fxLayoutGap="5px">
+                    <mat-form-field appearance="outline" fxFlex="26">
+                        <mat-select formControlName="country" [(ngModel)]="selectedCountry.id" (selectionChange)="onSelect($event.value)" name="country" placeholder="Country">
+                            <mat-option *ngFor="let country of countries" value={{country.id}}>
+                                {{country.name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" fxFlex="26">
+                        <mat-select formControlName="state" [(ngModel)]="selectedState.id" (selectionChange)="select($event.value)" name="state" placeholder="State">
+                            <mat-option *ngFor="let state of states" value={{state.id}}>
+                                {{state.name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" fxFlex="26">
+                        <mat-select formControlName="city" placeholder="City">
+                            <mat-option *ngFor="let city of cities" value={{city.id}}>
+                                {{city.name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" fxFlex="15">
+                        <input matInput formControlName="zip" placeholder="Zip">
+                    </mat-form-field>
+                    <mat-icon class="cursor" (click)="removeRow(i)">delete</mat-icon>
+                    <mat-icon class="cursor" fxLayoutAlign="end end" (click)="addRow()">add_box</mat-icon>
+                </div>
+            </div>
+        </div>
+        <div fxLayoutAlign="end end">
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button type="submit" matStepperNext>Save and Next</button>
+        </div>
+
+    </form>
+
+</mat-card>

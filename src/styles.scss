@@ -1,1 +1,85 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+$project-primary: mat-palette($mat-indigo);
+$project-accent: mat-palette($mat-pink, A200, A100, A400);
+$project-warn: mat-palette($mat-red);
+$project-theme: mat-light-theme(( color: ( primary: $project-primary, accent: $project-accent, warn: $project-warn, )));
+@include angular-material-theme($project-theme);
+.overflow-hidden {
+    overflow: hidden;
+}
+
+.flexgrow-1 {
+    flex-grow: 1;
+}
+
+.overflow-auto {
+    overflow: auto;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.height {
+    height: 400px;
+    width: 50px;
+}
+
+.mat-step-icon {
+    border-radius: 0% !important;
+    height: 37px !important;
+    width: 37px !important;
+}
+
+.mat-form-field {
+    font-size: 10px;
+}
+
+.mat-height {
+    height: 40px;
+}
+
+.avatar-upload {
+    position: relative;
+    max-width: 205px;
+    // margin: 10px auto 30px;
+}
+
+.avatar-upload .avatar-edit input {
+    display: none;
+}
+
+.avatar-upload .avatar-edit .custom-label {
+    display: inline-block;
+    width: 34px;
+    height: 34px;
+    margin-bottom: 0;
+    border: 1px solid transparent;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    font-weight: normal;
+    transition: all 0.2s ease-in-out;
+}
+
+.avatar-upload .avatar-preview {
+    width: auto;
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+}
+
+.avatar-upload .avatar-preview>div {
+    width: 80%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.mat-step-text-label {
+    font-size: 10px;
+}

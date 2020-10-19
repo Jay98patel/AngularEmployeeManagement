@@ -1,0 +1,35 @@
+<div class="content-fixer">
+    <mat-card>
+        <p>02. CONTACTS DETAILS</p>
+        <form fxFlexAlign="start">
+            <div fxLayout="column">
+                <div fxLayout="row" fxLayoutGap="5px" fxLayoutAlign=" end">
+                    <mat-form-field appearance="outline" fxFlex="33">
+                        <input matInput placeholder="Mobile Number" required>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" fxFlex="33">
+                        <input matInput placeholder="Home Phone Number" required>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" fxFlex="33">
+                        <input type="email" matInput placeholder="Email" required>
+                    </mat-form-field>
+                </div>
+                <div fxLayout="row" fxLayoutGap="5px" fxLayoutAlign=" end">
+                    <mat-form-field appearance="outline" fxFlex="33">
+                        <input matInput placeholder="Business Phone Number" required>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" fxFlex="33">
+                        <input matInput placeholder="Business Extension Number" required>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" fxFlex="33">
+                        <input matInput placeholder="Fax Number" required>
+                    </mat-form-field>
+                </div>
+            </div>
+        </form>
+    </mat-card>
+</div>
+<div fxLayoutAlign="end end">
+    <button mat-button matStepperPrevious>Back</button>
+    <button mat-button matStepperNext>Save and Next</button>
+</div>

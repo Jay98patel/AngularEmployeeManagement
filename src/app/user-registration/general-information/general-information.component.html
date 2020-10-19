@@ -1,0 +1,120 @@
+<mat-card>
+    <p>01. GENERAL INFORMATION</p>
+    <form [formGroup]="registrationForm" fxFlexAlign="start">
+        <div fxLayout="column">
+            <div fxLayout="row" fxLayoutGap="5px" fxLayoutAlign=" end">
+                <div class="avatar-upload" fxFlex="15">
+                    <div class="avatar-edit">
+                        <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" #fileInput (change)="uploadFile($event)" />
+                    </div>
+                    <div class="avatar-preview">
+                        <div (click)="fileInput.click()" id="imagePreview" [style.backgroundImage]="'url('+ imageUrl +')'">
+                        </div>
+                    </div>
+                </div>
+                <mat-form-field appearance="outline" fxFlex="24.5">
+                    <mat-select placeholder="Organization Name" required>
+                        <mat-option *ngFor="let OrName of selectedOrganiz" [value]="OrName">
+                            {{ OrName }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field appearance="outline" fxFlex="31">
+                    <mat-select placeholder="Customer Name" required>
+                        <mat-option *ngFor="let CrName of customerName">
+                            {{ CrName }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field appearance="outline" fxFlex="29">
+                    <mat-select placeholder="Vendor Name" required>
+                        <mat-option *ngFor="let vnName of vendorName">
+                            {{ vnName }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div fxLayout="row" fxLayoutGap="5px">
+                <mat-form-field appearance="outline" fxFlex="10">
+                    <mat-select placeholder="Prefix" required>
+                        <mat-option *ngFor="let pxName of namePrefix">
+                            {{ pxName }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field appearance="outline" fxFlex="30">
+                    <input matInput placeholder="First Name" required>
+                </mat-form-field>
+                <mat-form-field appearance="outline" fxFlex="31">
+                    <input matInput placeholder="Middle Name" required>
+                </mat-form-field>
+                <mat-form-field appearance="outline" fxFlex="29">
+                    <input matInput placeholder="Last Name" required>
+                </mat-form-field>
+            </div>
+            <div fxLayout="row" fxLayoutGap="5px">
+                <mat-form-field appearance="outline" fxFlex="41">
+                    <input matInput placeholder="Nick Name" required>
+                </mat-form-field>
+                <mat-form-field appearance="outline" fxFlex="30">
+                    <input matInput placeholder="Blood Group" required>
+                </mat-form-field>
+                <mat-form-field appearance="outline" fxFlex="29">
+                    <input matInput placeholder="User Designation" required>
+                </mat-form-field>
+            </div>
+            <div fxLayout="row" fxLayoutGap="5px">
+                <mat-form-field appearance="outline" fxFlex="41">
+                    <mat-select placeholder="Time Zone" required>
+                        <mat-option *ngFor="let CrName of customerName">
+                            {{ CrName }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field appearance="outline" fxFlex="30">
+                    <input matInput [matDatepicker]="picker" placeholder="Choose a Date">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+                <mat-form-field appearance="outline" fxFlex="29">
+                    <input matInput [matDatepicker]="anniverDate" placeholder="Anniversary Date">
+                    <mat-datepicker-toggle matSuffix [for]="anniverDate"></mat-datepicker-toggle>
+                    <mat-datepicker #anniverDate></mat-datepicker>
+                </mat-form-field>
+            </div>
+            <div fxLayout="row" fxLayoutGap="5px">
+                <mat-form-field appearance="outline" fxFlex="41">
+                    <input matInput [matDatepicker]="joinpicker" placeholder="Joining Date">
+                    <mat-datepicker-toggle matSuffix [for]="joinpicker"></mat-datepicker-toggle>
+                    <mat-datepicker #joinpicker></mat-datepicker>
+                </mat-form-field>
+                <mat-form-field appearance="outline" fxFlex="30">
+                    <input matInput placeholder="Father's Name" required>
+                </mat-form-field>
+                <mat-form-field appearance="outline" fxFlex="29">
+                    <input matInput placeholder="Mother's Name" required>
+                </mat-form-field>
+            </div>
+            <div fxLayout="row" fxLayoutGap="5px">
+                <mat-form-field appearance="outline" fxFlex="40">
+                    <input matInput placeholder="Spouse Name" required>
+                </mat-form-field>
+                <mat-form-field appearance="outline" fxFlex="30.5">
+                    <mat-select placeholder="Prefix" required>
+                        <mat-option *ngFor="let organizName of organizationIndustry">
+                            {{ organizName }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div fxLayout="row">
+                <mat-form-field appearance="outline" fxFlex="71">
+                    <input matInput placeholder="Description" required>
+                </mat-form-field>
+            </div>
+        </div>
+        <div fxLayoutAlign="end none">
+            <button mat-button matStepperNext>Save and Next</button>
+        </div>
+    </form>
+</mat-card>
