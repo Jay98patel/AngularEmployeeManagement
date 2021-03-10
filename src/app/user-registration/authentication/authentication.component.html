@@ -1,0 +1,47 @@
+<mat-card>
+    <p>06. AUTHENTICATION</p>
+    <form fxFlexAlign="start" [formGroup]="authform" (ngSubmit)="submit()">
+        <div fxLayout="column">
+            <div fxLayout="row" fxLayoutGap="5px">
+                <mat-form-field appearance="outline" fxFlex="33">
+                    <input formControlName="uname" matInput placeholder="User Name" required>
+                    <mat-error *ngIf="authform.controls.uname.touched && authform.controls.password.invalid">
+                        name is required
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline" fxFlex="33">
+                    <input formControlName="password" matInput placeholder="Password" required>
+                    <mat-error *ngIf="authform.controls.password.touched && authform.controls.password.invalid">
+                        <div *ngIf="authform.controls.cnpassword.errors.required">
+                            Password is required
+                        </div>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline" fxFlex="33">
+                    <input formControlName="cnpassword" matInput placeholder="Confirm Password" required>
+                    <mat-error *ngIf="authform.controls.cnpassword.touched && authform.controls.cnpassword.invalid">
+                        <div *ngIf="authform.controls.cnpassword.errors.confirmedValidator">
+                            Password is not same
+                        </div>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div fxLayout="row" fxLayoutGap="5px">
+                <mat-form-field appearance="outline" fxFlex="24.5">
+                    <mat-select formControlName="role" placeholder="Role" required>
+                        <mat-option *ngFor="let roName of Role" [value]="roName">
+                            {{ roName }}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="authform.controls.role.touched && authform.controls.role.invalid">
+                        Role Required
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+        <div fxLayoutAlign="end none">
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext [disabled]="!authform.valid" type="submit">Save and Next</button>
+        </div>
+    </form>
+</mat-card>

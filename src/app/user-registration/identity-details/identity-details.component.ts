@@ -22,7 +22,7 @@ export class IdentityDetailsComponent implements OnInit {
    }
    newDetails():FormGroup{
      return this.fb.group({
-       document:'',
+       document:[''],
        docNum:'',
        issueDate:'',
        expDate:'',

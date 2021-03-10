@@ -24,10 +24,9 @@
                     <mat-datepicker #exppicker></mat-datepicker>
                 </mat-form-field>
                 <mat-form-field appearance="outline" fxFlex="17">
-                    <input formControlName="issuePlace" matInput placeholder="Issue Place">
+                    <input formControlName="issuePlace" name="any" matInput placeholder="Issue Place">
                 </mat-form-field>
                 <mat-icon class="cursor" (click)="removeRow(i)">delete</mat-icon>
-                <mat-icon class="cursor" (click)="addRow()">add_box</mat-icon>
             </div>
         </div>
         <div fxLayoutAlign="end none">
@@ -35,4 +34,5 @@
             <button mat-button matStepperNext type="submit">Save and Next</button>
         </div>
     </form>
+    <mat-icon class="cursor" (click)="addRow()">add_box</mat-icon>
 </mat-card>

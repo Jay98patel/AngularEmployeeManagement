@@ -22,6 +22,8 @@ import { IdentityDetailsComponent } from './identity-details/identity-details.co
 import { AddressDetailsComponent } from './address-details/address-details.component';
 import { CascadDropDataService } from '../services/cascad-drop-data.service';
 import { SocialNetworkComponent } from './social-network/social-network.component';
+import { AuthenticationComponent } from './authentication/authentication.component';
+import { SummaryComponent } from './summary/summary.component';
 @NgModule({
   declarations: [
     UserRegistrationComponent,
@@ -29,7 +31,9 @@ import { SocialNetworkComponent } from './social-network/social-network.componen
     ContactDetailsComponent,
     IdentityDetailsComponent,
     AddressDetailsComponent,
-    SocialNetworkComponent
+    SocialNetworkComponent,
+    AuthenticationComponent,
+    SummaryComponent
   ],
   imports: [
     CommonModule,

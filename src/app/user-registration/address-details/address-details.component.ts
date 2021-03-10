@@ -10,8 +10,7 @@ import { Country,State,City } from '../../shared/cascadedrop'
 export class AddressDetailsComponent implements OnInit {
   addressDetails:FormGroup;
   addresstype:any=['Permanant','Temparary']
-  selectedCountry:Country = new Country(0, 'India');
-  selectedState:State =  new State(5, 2, 'Gujarat' );
+  
   countries: Country[];
   states: State[];
   cities:City[];
@@ -25,6 +24,7 @@ export class AddressDetailsComponent implements OnInit {
 
   ngOnInit() {
    this.userAddress().push(this.newAddrDetails())
+   
   } 
   userAddress():FormArray{
     return this.addressDetails.get("addr") as FormArray
@@ -53,10 +53,10 @@ export class AddressDetailsComponent implements OnInit {
   //for country state dropdown
   onSelect(countryid) {
     this.states = this._cascadedrop.getStates().filter((item)=> item.countryid === Number(countryid));
-    console.log("country")
+    // this.states=this.countries.find(cntry=>cntry.name===countryid).states
+    
   }
   select(stateid){
-    
     this.cities = this._cascadedrop.getCities().filter((item)=> item.stateid === Number(stateid));
   }
   

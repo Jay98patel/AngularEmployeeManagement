@@ -1,1 +1,40 @@
-<p>social-network works!</p>
+<mat-card>
+    <p>03. IDENTITY DETAILS</p>
+    <form [formGroup]="socialNetwork" (ngSubmit)="onsubmit()">
+        <div fxLayout="column">
+            <div fxLayout="row">
+                <mat-form-field appearance="outline" fxFlex="35">
+                    <input formControlName="linkedin" matInput placeholder="Your Profile linkedin Link">
+                    <mat-icon class="input-icon" matPrefix><i class="icon fa fa-linkedin"></i></mat-icon>
+                </mat-form-field>
+            </div>
+            <div fxLayout="row">
+                <mat-form-field appearance="outline" fxFlex="35">
+                    <input formControlName="facebook" matInput placeholder="Your Profile linkedin Link">
+                    <mat-icon class="input-icon" matPrefix><i class="icon fa fa-facebook"></i></mat-icon>
+                </mat-form-field>
+            </div>
+            <div fxLayout="row">
+                <mat-form-field appearance="outline" fxFlex="35">
+                    <input formControlName="twitter" matInput placeholder="Your Profile linkedin Link">
+                    <mat-icon class="input-icon" matPrefix><i class="icon fa fa-twitter"></i></mat-icon>
+                </mat-form-field>
+            </div>
+            <div formArrayName="socialTab">
+                <div *ngFor="let user of userSocial().controls;  let i = index">
+                    <div fxLayout="row" [formGroupName]="i" fxLayoutGap="10px">
+                        <mat-form-field appearance="outline" fxFlex="45">
+                            <input formControlName="addSocial" matInput placeholder="Add more if You have any other social (Optional)">
+                        </mat-form-field>
+                        <mat-icon class="cursor" (click)="removeRow(i)">delete</mat-icon>
+                    </div>
+                </div>
+            </div>
+            <mat-icon class="cursor" (click)="addRow()">add_box</mat-icon>
+        </div>
+        <div fxLayoutAlign="end end">
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button type="submit" matStepperNext>Save and Next</button>
+        </div>
+    </form>
+</mat-card>

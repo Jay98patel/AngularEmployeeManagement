@@ -22,22 +22,22 @@
                 </div>
                 <div fxLayout="row" fxLayoutGap="5px">
                     <mat-form-field appearance="outline" fxFlex="26">
-                        <mat-select formControlName="country" [(ngModel)]="selectedCountry.id" (selectionChange)="onSelect($event.value)" name="country" placeholder="Country">
+                        <mat-select formControlName="country" (selectionChange)="onSelect($event.value)" name="country" placeholder="Country">
                             <mat-option *ngFor="let country of countries" value={{country.id}}>
                                 {{country.name}}
                             </mat-option>
                         </mat-select>
                     </mat-form-field>
                     <mat-form-field appearance="outline" fxFlex="26">
-                        <mat-select formControlName="state" [(ngModel)]="selectedState.id" (selectionChange)="select($event.value)" name="state" placeholder="State">
-                            <mat-option *ngFor="let state of states" value={{state.id}}>
+                        <mat-select formControlName="state" (selectionChange)="select($event.value)" name="state" placeholder="State">
+                            <mat-option *ngFor="let state of states" [value]="state.id">
                                 {{state.name}}
                             </mat-option>
                         </mat-select>
                     </mat-form-field>
                     <mat-form-field appearance="outline" fxFlex="26">
                         <mat-select formControlName="city" placeholder="City">
-                            <mat-option *ngFor="let city of cities" value={{city.id}}>
+                            <mat-option *ngFor="let city of cities" value={{city.name}}>
                                 {{city.name}}
                             </mat-option>
                         </mat-select>
@@ -46,10 +46,11 @@
                         <input matInput formControlName="zip" placeholder="Zip">
                     </mat-form-field>
                     <mat-icon class="cursor" (click)="removeRow(i)">delete</mat-icon>
-                    <mat-icon class="cursor" fxLayoutAlign="end end" (click)="addRow()">add_box</mat-icon>
+
                 </div>
             </div>
         </div>
+        <mat-icon class="cursor" (click)="addRow()">add_box</mat-icon>
         <div fxLayoutAlign="end end">
             <button mat-button matStepperPrevious>Back</button>
             <button mat-button type="submit" matStepperNext>Save and Next</button>

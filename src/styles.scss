@@ -3,6 +3,7 @@
 @import '~@angular/material/theming';
 // Plus imports for other components in your app.
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
+@import '../node_modules/font-awesome/scss/font-awesome';
 $project-primary: mat-palette($mat-indigo);
 $project-accent: mat-palette($mat-pink, A200, A100, A400);
 $project-warn: mat-palette($mat-red);
@@ -14,6 +15,10 @@ $project-theme: mat-light-theme(( color: ( primary: $project-primary, accent: $p
 
 .flexgrow-1 {
     flex-grow: 1;
+}
+
+.mat-icon {
+    cursor: pointer;
 }
 
 .overflow-auto {
